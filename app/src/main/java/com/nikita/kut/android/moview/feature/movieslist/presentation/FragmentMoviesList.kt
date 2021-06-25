@@ -8,7 +8,7 @@ import com.nikita.kut.android.moview.app.repository.MovieRepository
 import com.nikita.kut.android.moview.app.util.AutoClearedValue
 import com.nikita.kut.android.moview.app.util.ViewBindingFragment
 import com.nikita.kut.android.moview.databinding.FragmentMoviesListBinding
-import com.nikita.kut.android.moview.feature.moviesdetails.FragmentMoviesDetails
+import com.nikita.kut.android.moview.feature.moviesdetails.presentation.FragmentMoviesDetails
 import com.nikita.kut.android.moview.feature.movieslist.model.Movie
 import com.nikita.kut.android.moview.feature.movieslist.presentation.adapter.MovieAdapter
 

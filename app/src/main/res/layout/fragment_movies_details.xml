@@ -2,6 +2,7 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -221,98 +222,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/moviedescription" />
 
-        <ImageView
-            android:id="@+id/robert_downey"
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_actor_list"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:src="@drawable/robert_downie"
-            app:layout_constraintEnd_toStartOf="@id/chris_evans"
+            app:layout_constraintTop_toBottomOf="@id/cast"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cast" />
-
-        <TextView
-            android:id="@+id/tv_robert_downey"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:fontFamily="sans-serif"
-            android:text="@string/robert_downey_jr"
-            android:textColor="#D8D8D8"
-            android:textFontWeight="900"
-            android:textSize="12sp"
-            android:textStyle="normal"
-            app:layout_constraintStart_toStartOf="@id/robert_downey"
-            app:layout_constraintTop_toBottomOf="@id/robert_downey" />
-
-        <ImageView
-            android:id="@+id/chris_evans"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:src="@drawable/chris_evans"
-            app:layout_constraintEnd_toStartOf="@id/mark_rufalo"
-            app:layout_constraintStart_toEndOf="@id/robert_downey"
-            app:layout_constraintTop_toBottomOf="@id/cast" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:fontFamily="sans-serif"
-            android:text="@string/chris_evans"
-            android:textColor="#D8D8D8"
-            android:textFontWeight="900"
-            android:textSize="12sp"
-            android:textStyle="normal"
-            app:layout_constraintStart_toStartOf="@id/chris_evans"
-            app:layout_constraintTop_toBottomOf="@id/chris_evans" />
-
-        <ImageView
-            android:id="@+id/mark_rufalo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:src="@drawable/mark_rufalo"
-            app:layout_constraintEnd_toStartOf="@id/chris_hemsworth"
-            app:layout_constraintStart_toEndOf="@id/chris_evans"
-            app:layout_constraintTop_toBottomOf="@id/cast" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:fontFamily="sans-serif"
-            android:text="@string/mark_ruffalo"
-            android:textColor="#D8D8D8"
-            android:textFontWeight="900"
-            android:textSize="12sp"
-            android:textStyle="normal"
-            app:layout_constraintStart_toStartOf="@id/mark_rufalo"
-            app:layout_constraintTop_toBottomOf="@id/mark_rufalo" />
-
-        <ImageView
-            android:id="@+id/chris_hemsworth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:src="@drawable/chris_hemsvort"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/mark_rufalo"
-            app:layout_constraintTop_toBottomOf="@id/cast" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:fontFamily="sans-serif"
-            android:text="@string/chris_hemsworth"
-            android:textColor="#D8D8D8"
-            android:textFontWeight="900"
-            android:textSize="12sp"
-            android:textStyle="normal"
-            app:layout_constraintStart_toStartOf="@id/chris_hemsworth"
-            app:layout_constraintTop_toBottomOf="@id/robert_downey" />
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:listitem="@layout/item_actor"
+            tools:itemCount="2"
+            android:layout_marginHorizontal="@dimen/margin" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

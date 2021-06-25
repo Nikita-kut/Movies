@@ -2,14 +2,13 @@ package com.nikita.kut.android.moview.app.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.nikita.kut.android.moview.feature.moviesdetails.FragmentMoviesDetails
+import com.nikita.kut.android.moview.feature.moviesdetails.presentation.FragmentMoviesDetails
 import com.nikita.kut.android.moview.feature.movieslist.presentation.FragmentMoviesList
 import com.nikita.kut.android.moview.R
 import com.nikita.kut.android.moview.databinding.ActivityMainBinding
 import com.nikita.kut.android.moview.feature.main.MainFragment
 
-class MainActivity : AppCompatActivity(),
-    FragmentMoviesDetails.DetailsClickListener {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -46,13 +45,4 @@ class MainActivity : AppCompatActivity(),
             }
         }
     }
-
-
-    override fun onBackButtonClick() {
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.activity_main_container, FragmentMoviesList.newInstance())
-                .commit()
-        }
-    }
-
 }
