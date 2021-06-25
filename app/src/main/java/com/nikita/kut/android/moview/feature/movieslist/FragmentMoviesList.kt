@@ -1,4 +1,4 @@
-package com.nikita.kut.android.moview
+package com.nikita.kut.android.moview.feature.movieslist
 
 import android.content.Context
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import com.nikita.kut.android.moview.R
 
 class FragmentMoviesList : Fragment() {
 
