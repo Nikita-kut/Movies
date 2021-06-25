@@ -8,17 +8,14 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.nikita.kut.android.moview.R
+import com.nikita.kut.android.moview.app.util.ViewBindingFragment
+import com.nikita.kut.android.moview.databinding.FragmentMoviesDetailsBinding
 
-class FragmentMoviesDetails : Fragment() {
+class FragmentMoviesDetails :
+    ViewBindingFragment<FragmentMoviesDetailsBinding>(FragmentMoviesDetailsBinding::inflate) {
 
     private var btnBack: LinearLayout? = null
     private var listener: DetailsClickListener? = null
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_movies_details, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,6 +38,10 @@ class FragmentMoviesDetails : Fragment() {
 
     interface DetailsClickListener {
         fun onBackButtonClick()
+    }
+
+    companion object {
+        fun newInstance(): FragmentMoviesDetails = FragmentMoviesDetails()
     }
 
 }

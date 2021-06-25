@@ -8,17 +8,14 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.nikita.kut.android.moview.R
+import com.nikita.kut.android.moview.app.util.ViewBindingFragment
+import com.nikita.kut.android.moview.databinding.FragmentMoviesListBinding
 
-class FragmentMoviesList : Fragment() {
+class FragmentMoviesList :
+    ViewBindingFragment<FragmentMoviesListBinding>(FragmentMoviesListBinding::inflate) {
 
     private var cardMovie: ConstraintLayout? = null
     private var listener: ClickListener? = null
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_movies_list, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -42,5 +39,9 @@ class FragmentMoviesList : Fragment() {
 
     interface ClickListener {
         fun onCardClick()
+    }
+
+    companion object {
+        fun newInstance(): FragmentMoviesList = FragmentMoviesList()
     }
 }

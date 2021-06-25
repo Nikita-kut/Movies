@@ -5,19 +5,44 @@ import androidx.appcompat.app.AppCompatActivity
 import com.nikita.kut.android.moview.feature.moviesdetails.FragmentMoviesDetails
 import com.nikita.kut.android.moview.feature.movieslist.FragmentMoviesList
 import com.nikita.kut.android.moview.R
+import com.nikita.kut.android.moview.databinding.ActivityMainBinding
+import com.nikita.kut.android.moview.feature.main.MainFragment
 
-private val detailsMoviesFragment = FragmentMoviesDetails()
-private val listMoviesFragment = FragmentMoviesList()
+class MainActivity : AppCompatActivity(), FragmentMoviesList.ClickListener,
+    FragmentMoviesDetails.DetailsClickListener {
 
-class MainActivity : AppCompatActivity(), FragmentMoviesList.ClickListener, FragmentMoviesDetails.DetailsClickListener {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.activity_main_container, listMoviesFragment)
-                    .commit()
+            supportFragmentManager.beginTransaction()
+                .replace(
+                    binding.activityMainContainer.id,
+                    MainFragment.newInstance(),
+                    MainFragment.MAIN_FRAGMENT_TAG
+                )
+                .commit()
+        }
+    }
+
+    override fun onBackPressed() {
+        val mainFragmentFragmentManager = supportFragmentManager
+            .findFragmentByTag(MainFragment.MAIN_FRAGMENT_TAG)
+            ?.childFragmentManager
+        val backStackCount =
+            mainFragmentFragmentManager
+                ?.backStackEntryCount
+        if (backStackCount == null) {
+            super.onBackPressed()
+        } else {
+            if (backStackCount > 0) {
+                mainFragmentFragmentManager.popBackStack()
+            } else {
+                super.onBackPressed()
             }
         }
     }
@@ -25,14 +50,14 @@ class MainActivity : AppCompatActivity(), FragmentMoviesList.ClickListener, Frag
     override fun onCardClick() {
         supportFragmentManager.beginTransaction().apply {
             addToBackStack(null)
-            replace(R.id.activity_main_container, detailsMoviesFragment)
+            replace(R.id.activity_main_container, FragmentMoviesDetails.newInstance())
                 .commit()
         }
     }
 
     override fun onBackButtonClick() {
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.activity_main_container, listMoviesFragment)
+            replace(R.id.activity_main_container, FragmentMoviesList.newInstance())
                 .commit()
         }
     }
