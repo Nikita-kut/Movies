@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <dimen name="text14">14sp</dimen>
+    <dimen name="text8">8sp</dimen>
+
+
+    <dimen name="margin">16dp</dimen>
+    <dimen name="margin_extra">32dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_extra_small">4dp</dimen>
+    <dimen name="margin_list_top">56dp</dimen>
+    <dimen name="margin_2dp">2dp</dimen>
+
+
+</resources>

@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.nikita.kut.android.moview.app.util.ViewBindingFragment
 import com.nikita.kut.android.moview.databinding.FragmentMainBinding
-import com.nikita.kut.android.moview.feature.movieslist.FragmentMoviesList
+import com.nikita.kut.android.moview.feature.movieslist.presentation.FragmentMoviesList
 
 class MainFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
